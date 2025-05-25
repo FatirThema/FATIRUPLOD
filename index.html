@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   FATIRUPLODER - Simple File Hosting
+   FATIRUPLODER - Website Upload File Gratis 
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
@@ -13,97 +14,273 @@
    body {
       font-family: 'Inter', sans-serif;
     }
+    /* Custom scrollbar for file list */
+    .file-list::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .file-list::-webkit-scrollbar-thumb {
+      background-color: #a0aec0;
+      border-radius: 4px;
+    }
+    .file-list::-webkit-scrollbar-track {
+      background-color: #edf2f7;
+    }
   </style>
  </head>
- <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
-  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-   <a class="flex items-center space-x-3" href="/">
-    <img alt="FATIRUPLODER logo, stylized letters F and U in white on black background" class="w-10 h-10" height="40" src="https://storage.googleapis.com/a1aa/image/2f2c0584-5b3f-48cd-664f-c2429d4cafa7.jpg" width="40"/>
-    <span class="text-2xl font-semibold tracking-wide">
-     FATIRUPLODER
-    </span>
-   </a>
-   <nav aria-label="Primary Navigation" class="hidden md:flex space-x-6 text-gray-400 text-sm font-medium">
-    <a class="hover:text-white transition" href="#">
-     Upload
+ <body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow-md">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a class="flex items-center space-x-2" href="#">
+     <img alt="FATIRUPLODER logo, stylized letter F in blue and white" class="w-10 h-10 rounded" height="40" src="https://h.top4top.io/p_33363xa4j0.jpg" width="40"/>
+     <span class="text-2xl font-semibold text-blue-600 select-none">
+      FATIRUPLODER
+     </span>
     </a>
-    <a class="hover:text-white transition" href="#">
-     Browse
+    <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+     <a class="hover:text-blue-600 transition" href="#upload">
+      Upload
+     </a>
+     <a class="hover:text-blue-600 transition" href="#faq">
+      FAQ
+     </a>
+     <a class="hover:text-blue-600 transition" href="#about">
+      TENTANG
+     </a>
+    </nav>
+    <button aria-label="Open menu" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded" id="mobile-menu-button">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </div>
+   <nav aria-label="Mobile menu" class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
+    <a class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition" href="#upload">
+     UUploa
     </a>
-    <a class="hover:text-white transition" href="#">
-     API
+    <a class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition" href="#faq">
+     FAQ
     </a>
-    <a class="hover:text-white transition" href="#">
-     Donate
-    </a>
-    <a class="hover:text-white transition" href="#">
-     About
+    <a class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition" href="#about">
+     TENTANG
     </a>
    </nav>
-   <button aria-label="Toggle menu" class="md:hidden text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white" id="mobile-menu-button">
-    <i class="fas fa-bars fa-lg">
-    </i>
-   </button>
   </header>
-  <nav aria-label="Mobile Navigation" class="md:hidden bg-gray-800 border-b border-gray-700 hidden flex-col space-y-2 px-6 py-4 text-gray-400 text-sm font-medium" id="mobile-menu">
-   <a class="block hover:text-white transition" href="#">
-    Upload
-   </a>
-   <a class="block hover:text-white transition" href="#">
-    Browse
-   </a>
-   <a class="block hover:text-white transition" href="#">
-    API
-   </a>
-   <a class="block hover:text-white transition" href="#">
-    Donate
-   </a>
-   <a class="block hover:text-white transition" href="#">
-    About
-   </a>
-  </nav>
-  <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 max-w-3xl mx-auto w-full">
-   <h1 class="text-5xl font-extrabold mb-6 text-center leading-tight">
-    Simple, fast, and free file hosting
-   </h1>
-   <p class="text-gray-400 text-center max-w-xl mb-10">
-    Upload your files quickly and share them with ease. No account required,
-      no limits on file size, and no ads.
-   </p>
-   <form action="#" class="w-full max-w-xl" enctype="multipart/form-data" method="POST">
-    <label class="cursor-pointer flex flex-col items-center justify-center border-4 border-dashed border-gray-700 rounded-lg p-12 hover:border-gray-500 transition-colors" for="file-upload">
-     <i class="fas fa-cloud-upload-alt text-6xl text-gray-600 mb-6">
-     </i>
-     <span class="text-gray-400 text-lg font-semibold">
-      Click to select files or drag and drop here
-     </span>
-     <input aria-label="File upload input" class="hidden" id="file-upload" multiple="" name="files" type="file"/>
-    </label>
-    <button class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition" type="submit">
-     Upload
-    </button>
-   </form>
-
+  <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+   <!-- Upload Section -->
+   <section class="mb-16" id="upload">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">
+     Upload File dan Gambar - FATIRUPLODER
+    </h1>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+     Simpel cepat dan tidak ada Virus. Upload file 10GB tanpa berbayar
+    </p>
+    <form class="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto border border-gray-200" enctype="multipart/form-data" id="upload-form" novalidate="">
+     <label class="flex flex-col items-center justify-center border-4 border-dashed border-blue-400 rounded-lg cursor-pointer hover:border-blue-600 transition p-12 text-blue-500" for="file-input">
+      <i class="fas fa-cloud-upload-alt fa-4x mb-4">
+      </i>
+      <span class="text-lg font-semibold">
+       Click Lalu pilih File/Gambar untuk di upload
+      </span>
+      <input aria-describedby="file-input-description" class="hidden" id="file-input" multiple="" name="files" type="file"/>
+     </label>
+     <p class="sr-only" id="file-input-description">
+      Kamu bisa pilih file/gambar dengan batas size 10GB file. 
+     </p>
+     <div class="mt-6 max-h-48 overflow-y-auto file-list" id="selected-files">
+     </div>
+     <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div class="flex items-center space-x-3">
+       <input class="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" id="delete-after" type="checkbox"/>
+       <label class="text-gray-700 select-none" for="delete-after">
+        Hapus secara otomatis setelah 7 hari
+       </label>
+      </div>
+      <button class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition" type="submit">
+       <i class="fas fa-upload mr-2">
+       </i>
+       Upload
+      </button>
+     </div>
+     <p class="mt-4 text-sm text-gray-500 text-center">
+      ® Powered By Fatir Devillan Official
+      <a class="text-blue-600 underline" href="#terms">
+       Hubungi Bantuan Melalui Telegram : @Love1infreya
+      </a>
+      .
+     </p>
+    </form>
+    <div aria-live="polite" class="max-w-3xl mx-auto mt-6 text-center text-green-600 font-semibold hidden" id="upload-status" role="alert">
+    </div>
+   </section>
+   <!-- FAQ Section -->
+   <section class="mb-16 max-w-3xl mx-auto" id="faq">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+     Frequently Asked Questions
+    </h2>
+    <div class="space-y-4">
+     <details class="bg-white rounded-lg shadow p-5 border border-gray-200">
+      <summary class="font-semibold cursor-pointer select-none text-gray-800">
+       Apa sih website FATIRUPLODER?
+      </summary>
+      <p class="mt-2 text-gray-600">
+       FATIRUPLODER - adalah website untuk mengupload gambar ataupun file menjadi sebuah link atau kata kunci website secara gratis dan instan tanpa berbayar ataupun berlangganan. 
+      </p>
+     </details>
+     <details class="bg-white rounded-lg shadow p-5 border border-gray-200">
+      <summary class="font-semibold cursor-pointer select-none text-gray-800">
+       Berapa sih batasan upload file? 
+      </summary>
+      <p class="mt-2 text-gray-600">
+       Kamu bisa upload file sampai size 10GB.
+      </p>
+     </details>
+     <details class="bg-white rounded-lg shadow p-5 border border-gray-200">
+      <summary class="font-semibold cursor-pointer select-none text-gray-800">
+       Berapa lama sih batasan waktu expired? 
+      </summary>
+      <p class="mt-2 text-gray-600">
+       File atau gambar akan secara otomatis di reset setelah 7 hari. 
+      </p>
+     </details>
+     <details class="bg-white rounded-lg shadow p-5 border border-gray-200">
+      <summary class="font-semibold cursor-pointer select-none text-gray-800">
+       Apakah saya harus login atau berlangganan? 
+      </summary>
+      <p class="mt-2 text-gray-600">
+       Tidak usah, tidak perlu login atau berlangganan yang berbayar
+      </p>
+     </details>
+     <details class="bg-white rounded-lg shadow p-5 border border-gray-200">
+      <summary class="font-semibold cursor-pointer select-none text-gray-800">
+       Apa file atau gambar bersifat privat? 
+      </summary>
+      <p class="mt-2 text-gray-600">
+       Link file atau gambar bisa di akses semua orang yang memiliki link atau kata kunci website dan bisa mendapatkan akses. 
+      </p>
+     </details>
+    </div>
+   </section>
+   <!-- About Section -->
+   <section class="mb-16 max-w-3xl mx-auto text-center" id="about">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">
+     TENTANG FATIRUPLODER
+    </h2>
+    <img alt="Banner image showing FATIRUPLODER file hosting service with abstract blue and white shapes and cloud upload icon" class="mx-auto rounded-lg shadow-md mb-6" height="200" src="https://h.top4top.io/p_33363xa4j0.jpg"/>
+    <p class="text-gray-700 text-lg leading-relaxed">
+     FATIRUPLODER adalah platform penyimpanan file yang ringan, cepat, dan aman yang dirancang untuk memudahkan berbagi file. Baik Anda ingin berbagi gambar, video, dokumen, atau arsip, FATIRUPLODER menyediakan antarmuka yang sederhana tanpa iklan dan tanpa registrasi.
+    </p>
+    <p class="text-gray-700 text-lg leading-relaxed mt-4">
+     Misi kami adalah menyediakan layanan unggah berkas yang andal dan anonim yang menghormati privasi Anda dan menjaga data Anda tetap aman. Berkas akan dihapus secara otomatis setelah 7 hari untuk menghemat ruang dan melindungi informasi Anda.
+    </p>
+   </section>
   </main>
-  <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-12 text-center text-gray-500 text-sm">
-   <p>
-    © 2025 FATIRUPLODER - Website Gratis Untuk semua orang |
-    <a class="text-indigo-500 hover:text-indigo-400" href="#">
-     Created from FATIR DEVILLAN OFFICIAL
-    </a>
-    |
-    <a class="text-indigo-500 hover:text-indigo-400" href="#">
-     ADA KENDALA PV TELEGRAM : @Love1infreya
-    </a>
-   </p>
+  <footer class="bg-white border-t border-gray-200 py-6">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-gray-600 text-sm">
+    <p>
+     © 2025 FATIRDEVILLANOFFICIAL | FATIRUPLODER
+    </p>
+    <div class="space-x-4 mt-3 sm:mt-0">
+     <a class="hover:text-blue-600 underline" href="#terms">
+      Pusat bantuan
+     </a>
+     <a class="hover:text-blue-600 underline" href="#privacy">
+      Privasi hak cipta
+     </a>
+     <a class="hover:text-blue-600 underline" href="fatirdevillan@gmail.com">
+      Contact
+     </a>
+    </div>
+   </div>
   </footer>
   <script>
-   const menuButton = document.getElementById('mobile-menu-button');
+   // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    menuButton.addEventListener('click', () => {
+    mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    // File input and display selected files
+    const fileInput = document.getElementById('file-input');
+    const selectedFilesContainer = document.getElementById('selected-files');
+    const uploadForm = document.getElementById('upload-form');
+    const uploadStatus = document.getElementById('upload-status');
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function createFileItem(file) {
+      const div = document.createElement('div');
+      div.className = 'flex items-center justify-between bg-blue-50 rounded-md p-3 mb-2 shadow-sm';
+      const name = document.createElement('span');
+      name.className = 'text-blue-700 font-medium truncate max-w-xs';
+      name.title = file.name;
+      name.textContent = file.name;
+      const size = document.createElement('span');
+      size.className = 'text-blue-600 text-sm ml-4 flex-shrink-0';
+      size.textContent = formatBytes(file.size);
+      div.appendChild(name);
+      div.appendChild(size);
+      return div;
+    }
+
+    function updateSelectedFiles() {
+      selectedFilesContainer.innerHTML = '';
+      if (fileInput.files.length === 0) {
+        selectedFilesContainer.innerHTML = '<p class="text-gray-500 text-center">No files selected</p>';
+        return;
+      }
+      Array.from(fileInput.files).forEach((file) => {
+        selectedFilesContainer.appendChild(createFileItem(file));
+      });
+    }
+
+    fileInput.addEventListener('change', updateSelectedFiles);
+
+    // Copy link function
+    function copyLink(link) {
+      navigator.clipboard.writeText(link).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    }
+
+    // Delete file function (dummy)
+    function deleteFile(filename) {
+      if (confirm(`Are you sure you want to delete "${filename}"? This action cannot be undone.`)) {
+        alert(`File "${filename}" deleted (dummy action).`);
+      }
+    }
+
+    // Handle form submission (dummy upload)
+    uploadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (fileInput.files.length === 0) {
+        alert('Please select at least one file to upload.');
+        return;
+      }
+      uploadStatus.classList.add('hidden');
+      // Simulate upload delay
+      uploadStatus.textContent = '';
+      uploadStatus.classList.remove('hidden');
+      uploadStatus.classList.remove('text-green-600');
+      uploadStatus.classList.add('text-blue-600');
+      uploadStatus.textContent = 'Uploading... Please wait.';
+      setTimeout(() => {
+        uploadStatus.textContent = 'Upload successful! Your files are now hosted on FATIRUPLODER.';
+        uploadStatus.classList.remove('text-blue-600');
+        uploadStatus.classList.add('text-green-600');
+        fileInput.value = '';
+        updateSelectedFiles();
+      }, 2000);
+    });
+
+    // Initialize selected files container text
+    updateSelectedFiles();
   </script>
  </body>
 </html>
